@@ -15,7 +15,12 @@ def main():
         if volba == "1":
             jmeno = input("Zadejte jméno: ")
             prijmeni = input("Zadejte příjmení: ")
-            vek = input("Zadejte věk: ")
+            while True:
+                vek = input("Zadejte věk: ")
+                if not vek.isdigit():
+                    print("Chybný vstup, zadejte prosím číslo.")
+                    continue
+                break
             telefon = input("Zadejte telefonní číslo: ")
             pojisteni = Pojisteni(jmeno, prijmeni, vek, telefon)
             pojisteni_manager.pridej_pojisteneho(pojisteni)
@@ -34,6 +39,7 @@ def main():
                 print("Pojištěný s tímto jménem a příjmením nebyl nalezen.")
 
         elif volba == "4":
+            print("Děkujeme, pěkný den")
             break
 
 main()
